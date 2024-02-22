@@ -1,4 +1,4 @@
-{% load static %}
+{% comment %} {% load static %}
 <head> 
   <link rel="stylesheet" href="static/style.css"> 
   <script src="{% static 'sales/home.js' %}" defer></script>
@@ -21,4 +21,111 @@
     <br>
     <img src="{% static 'recipes/images/recipes.jpg' %}" alt="home" width="600" height="300">
   </body>
+</html> {% endcomment %}
+           
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>RecipeApp | Home</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    {% load static %}
+    <link rel="shortcut icon" href="{% static 'recipes/images/favicon.png' %}">
+    <link rel='stylesheet' type='text/css' href="{% static 'recipes/css/styles.css' %}">
+    <script src="{% static 'sales/home.js' %}" defer></script>
+    <style type="text/css">
+        {% comment %} body {
+            background: url("{% static 'recipes/images/recipes.jpg' %}") no-repeat fixed;
+            background-size: cover;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 10vh;
+        }
+
+        h1,
+        h3 {
+            color: rgb(7, 120, 90);
+            font-family: 'Roboto Mono', 'Calibri', 'Trebuchet MS', sans-serif;
+        }
+
+        img {
+            border-radius: 15px;
+        } {% endcomment %}
+        body {
+            background: 
+                linear-gradient(rgba(0, 0, 0, 0.235), rgba(0, 0, 0, 0.235)),
+                url("{% static 'recipes/images/recipes.jpg' %}") no-repeat fixed;
+            background-size: cover;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 10vh;
+            padding: 3px;
+        }
+
+        h1 {
+            font-family: 'Bebas Neue', sans-serif;
+            color: #ffffff;
+            text-align: center;
+            font-size: 100px;
+            letter-spacing: 5px;  
+            text-shadow: 
+                    -10px -10px 0 #000, 
+                    3px -3px 0 #000, 
+                    -3px 3px 0 #000, 
+                    3px 3px 0 #000;
+        }
+
+        h2 {
+            color: #000000;
+            font-family: 'Roboto Mono', 'Calibri', 'Trebuchet MS', sans-serif;
+            text-align: center;
+        }
+
+        /* Added styles */
+        .login-container {
+            background: #ffffff44;
+            padding: 15px;
+            border-radius: 5px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .form-field {
+            margin-bottom: 10px;
+        }
+
+        .center-button {
+            text-align: center; /* Centering the button */
+        }
+
+        .login_btn {
+            width: 70px;
+            font-family: 'Roboto Mono', 'Calibri', 'Trebuchet MS', sans-serif;
+            font-size: 16px;
+            {% comment %} background-color: rgb(255, 62, 32); {% endcomment %}
+            background-color: #393e46;
+            border-radius: 5px;
+            color: white;
+            text-decoration: none;
+            padding: 10px;
+            text-align: center;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div>
+        <img src="{% static 'recipes/images/logo.png' %}" width="300px">
+        {% comment %} <h1>Welcome to my</h1> {% endcomment %}
+        <h1>Recipe App</h1>    
+    </div>
+    <div class='login-container'>
+        <h3>Log in to your account to see our list of recipes</h3>
+        <div class="center-button">
+            <a href="{%url 'login' %}" class="login_btn"> Login </a>
+        </div>
+    </div>
+</body>
+
 </html>

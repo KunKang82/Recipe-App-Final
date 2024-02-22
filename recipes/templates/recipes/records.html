@@ -1,4 +1,4 @@
-<h1> Search for Recipes </h1>
+{% comment %} <h1> Search for Recipes </h1>
 <br>
 <br>
 <p style="text-align: center"><a href="{% url 'recipes:list' %}"> Recipe Lists </a></p>
@@ -19,4 +19,69 @@
   <img src="data:image/png;base64, {{chart|safe}}">
 {% else %}
   <h3> no data</h3>
+{% endif %} {% endcomment %}
+
+<!DOCTYPE html>  
+<html lang="en">  
+<head>
+    <title>RecipeApp | Recipes</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    {% load static %}
+    <link rel='stylesheet' type='text/css' href="{% static 'recipes/css/styles.css' %}">
+    <style type="text/css">
+    body{
+        {% comment %} background: url("{% static 'recipes/images/recipes.jpg' %}")  no-repeat fixed; {% endcomment %}
+        background-size: cover;
+        {% comment %} color: white; {% endcomment %}
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        background-color: #ada397;
+    }
+    .form_data{
+        background-color: rgba(0, 0, 0, 0.61);
+        border-radius: 10px;
+        padding: 20px;
+        color: white;
+    }
+    
+          
+    </style>
+</head> 
+<body>
+  <div class="navbar">
+    <div class="nav-container">
+      <a href="{% url 'recipes:list' %}">All Recipes</a>
+      <a href="{% url 'recipes:create' %}">Create</a>
+      <a href="{% url 'recipes:records' %}">Records</a>
+      <a href="{% url 'logout' %}">Logout</a>
+    </div>
+  </div>
+
+<h1 style="font-size: 45px">Search for recipes</h1>
+<br>
+<br>
+<p style="text-align: center"><a href="{% url 'recipes:list' %}"> Recipe Lists </a></p>
+<br>
+<p style="text-align: center"><a href="{%url 'logout' %}"> Logout </a></p>
+
+
+<hr>
+<form action="" method="POST" class="form_data">
+  {% csrf_token %}
+  {{form}}
+  <button type="submit" >search</button>
+</form> 
+<br>
+<div>
+{% if recipes_df%}
+  {{recipes_df|safe}} 
+  <br>
+  <img src="data:image/png;base64, {{chart|safe}}">
+{% else %}
+  <h3> No Data</h3>
 {% endif %} 
+</div> 
+</body>
+</html>

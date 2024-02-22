@@ -1,18 +1,136 @@
-<h1>Login</h1>          {% comment %} print heading {% endcomment %}
+<!DOCTYPE html>
+<html lang="en">
 
-{% comment %} check for error message {% endcomment %}
-{% if error_message %}
-  {{error_message}}
-{% endif %}
+<head>
+    <title>RecipeApp Login</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    {% load static %}
+    <link rel="shortcut icon" href="{% static 'recipes/images/favicon.png' %}">
+    <link rel='stylesheet' type='text/css' href="{% static 'recipes/css/styles.css' %}">
+    <style type="text/css">
+        {% comment %} body {
+            background: url("{% static 'recipes/images/recipes.jpg' %}") no-repeat fixed;
+            background-size: cover;
+        } {% endcomment %}
+        {% comment %} body {
+            background: url("{% static 'recipes/images/recipes.jpg' %}") no-repeat fixed;
+            background-size: cover;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 30vh;
+        }
 
-{% comment %} print form {% endcomment %}
-<form action="" method="POST" >
-  {% comment %} add Django security token {% endcomment %}
-  {% csrf_token %}   
+        h1,
+        h3 {
+            color: rgb(7, 120, 90);
+            font-family: 'Roboto Mono', 'Calibri', 'Trebuchet MS', sans-serif;
+        }
 
-  {% comment %} print form received from view  {% endcomment %}
-  {{form}}           
+        img {
+            border-radius: 15px;
+        } {% endcomment %}
+        body {
+            background: 
+                linear-gradient(rgba(0, 0, 0, 0.235), rgba(0, 0, 0, 0.235)),
+                url("{% static 'recipes/images/recipes.jpg' %}") no-repeat fixed;
+            background-size: cover;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 10vh;
+            padding: 3px;
+        }
 
-  {% comment %} add button {% endcomment %}
-  <button type="submit" >Login</button>
-</form>
+        h1 {
+            font-family: 'Bebas Neue', sans-serif;
+            color: #ffffff;
+            text-align: center;
+            font-size: 100px;
+            letter-spacing: 5px;  
+            text-shadow: 
+                    -10px -10px 0 #000, 
+                    3px -3px 0 #000, 
+                    -3px 3px 0 #000, 
+                    3px 3px 0 #000;
+        }
+
+        h2 {
+            color: #000000;
+            font-family: 'Roboto Mono', 'Calibri', 'Trebuchet MS', sans-serif;
+            text-align: center;
+        }
+
+        /* Added styles */
+        .login-container {
+            background: #ffffff44;
+            padding: 15px;
+            border-radius: 5px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .form-field {
+            margin-bottom: 10px;
+        }
+
+        .center-button {
+            text-align: center; /* Centering the button */
+        }
+
+        .login_btn {
+            width: 70px;
+            font-family: 'Roboto Mono', 'Calibri', 'Trebuchet MS', sans-serif;
+            font-size: 16px;
+            {% comment %} background-color: rgb(255, 62, 32); {% endcomment %}
+            background-color: #393e46;
+            border-radius: 5px;
+            color: white;
+            text-decoration: none;
+            padding: 10px;
+            text-align: center;
+        }
+
+        .back-home_btn {
+            width: 70px;
+            font-family: 'Roboto Mono', 'Calibri', 'Trebuchet MS', sans-serif;
+            font-size: 16px;
+            {% comment %} background-color: rgb(255, 62, 32); {% endcomment %}
+            background-color: #393e46;
+            border-radius: 5px;
+            color: white;
+            text-decoration: none;
+            padding: 10px;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="auth_modal">
+        <h1>Login</h1> {% comment %} print heading {% endcomment %}
+
+        {% comment %} check for error message {% endcomment %}
+        {% if error_message %}
+        <div id="error_login">
+            {{error_message}}
+        </div>
+        {% endif %}
+
+        {% comment %} print form {% endcomment %}
+        <form action="" method="POST">
+            {% comment %} add Django security token {% endcomment %}
+            {% csrf_token %}
+
+            {% comment %} print form received from view {% endcomment %}
+            <div class="form_input">
+                {{form}}
+                {% comment %} add button {% endcomment %}
+                <button type="submit" class="login_btn">Login</button>
+                <button type="submit"><a class="back-home_btn" href="{%url 'recipes:home'%}"> Cancel </a></button>
+                {% comment %} <button style="border: 0px;"><a class="back-home_btn" href="{%url 'recipes:home'%}"> Cancel </a></button> {% endcomment %}
+            </div>
+
+        </form>
+    </div>
+</body>
+</html>
