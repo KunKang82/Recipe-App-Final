@@ -30,7 +30,7 @@ def login_view(request):
               login(request, user)                
               return redirect('recipes:list') #& send the user to desired page
       else:                                               #in case of error
-          error_message ='ooops.. something went wrong'   #print error message
+          error_message ='Ooops.. something went wrong!'   #print error message
 
   #prepare data to send from view to template
   context ={                                             

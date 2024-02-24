@@ -167,7 +167,7 @@ form {
   transition: 200ms;
 }
 
-.auth_modal {
+/* .auth_modal {
   width: 25%;
   background-color: rgba(255, 255, 255, 0.5);
   border-radius: 10px;
@@ -176,7 +176,7 @@ form {
   margin: 10px auto;
   margin-top: 23vh;
   font-family: 'Roboto Mono', 'Calibri', 'Trebuchet MS', sans-serif;
-}
+} */
 
 .details_modal {
   width: 55%;
@@ -204,6 +204,7 @@ form {
   background-color: rgb(255, 116, 32);
   padding: 10px;
   border-radius: 10px;
+  text-align: center;
 }
 
 .form_input {
@@ -213,9 +214,9 @@ form {
   margin-bottom: 20px;
 }
 
-.login_btn,
-.logout_btn,
-.back-home_btn {
+/* .login_btn,
+.back-home_btn, 
+.logout_btn {
   width: 70px;
   font-family: 'Roboto Mono', 'Calibri', 'Trebuchet MS', sans-serif;
   font-size: 16px;
@@ -225,11 +226,27 @@ form {
   text-decoration: none;
   padding: 10px;
   text-align: center;
-}
+} */
 
+.login_btn,
+.back-home_btn, 
+.logout_btn {
+  width: 70px;
+    font-family: 'Roboto Mono', 'Calibri', 'Trebuchet MS', sans-serif;
+    font-size: 16px;
+    background-color: #393e46; /* Same background color as the Login button */
+    border-radius: 5px;
+    color: white;
+    text-decoration: none;
+    padding: 10px;
+    text-align: center;
+    border: none; /* Remove border to match Login button */
+    cursor: pointer; /* Change cursor to pointer on hover */
+}
+/* 
 .back-home_btn {
   background-color: rgb(123, 49, 33);
-}
+} */
 
 .login_btn:hover,
 .logout_btn:hover,

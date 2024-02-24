@@ -33,24 +33,6 @@
     <link rel='stylesheet' type='text/css' href="{% static 'recipes/css/styles.css' %}">
     <script src="{% static 'sales/home.js' %}" defer></script>
     <style type="text/css">
-        {% comment %} body {
-            background: url("{% static 'recipes/images/recipes.jpg' %}") no-repeat fixed;
-            background-size: cover;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            margin-top: 10vh;
-        }
-
-        h1,
-        h3 {
-            color: rgb(7, 120, 90);
-            font-family: 'Roboto Mono', 'Calibri', 'Trebuchet MS', sans-serif;
-        }
-
-        img {
-            border-radius: 15px;
-        } {% endcomment %}
         body {
             background: 
                 linear-gradient(rgba(0, 0, 0, 0.235), rgba(0, 0, 0, 0.235)),
@@ -116,7 +98,7 @@
 
 <body>
     <div>
-        <img src="{% static 'recipes/images/logo.png' %}" width="300px">
+        {% comment %} <img src="{% static 'recipes/images/logo.png' %}" width="300px"> {% endcomment %}
         {% comment %} <h1>Welcome to my</h1> {% endcomment %}
         <h1>Recipe App</h1>    
     </div>
