@@ -8,24 +8,150 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   {% load static %}
   <link rel='stylesheet' href="{% static 'recipes/styles.css' %}">
+  <style type="text/css">
+    body{
+      {% comment %} background: url("{% static 'recipes/images/recipes.jpg' %}")  no-repeat fixed; {% endcomment %}
+      background-size: cover;
+      {% comment %} color: white; {% endcomment %}
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+      {% comment %} background-color: #ada397; {% endcomment %}
+      background-color: #eaece5;
+    }
+
+    ul {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+      background-color: #333;
+    }
+    
+    li {
+      float: left;
+      border-right:1px solid #bbb;
+    }
+    
+    li:last-child {
+      border-right: none;
+    }
+    
+    li a {
+      display: block;
+      color: white;
+      text-align: center;
+      padding: 14px 16px;
+      text-decoration: none;
+    }
+    
+    li a:hover:not(.active) {
+      background-color: #111;
+    }
+    
+    .active {
+      background-color: #b2c2bf;
+    }
+
+    .form-field {
+      margin-bottom: 10px;
+    }
+
+    .form-field label {
+      display: inline-block;
+      width: 150px; /* Adjust as needed for proper alignment */
+      text-align: right;
+      margin-right: 10px;
+    }
+
+    .form-field input,
+    .form-field select {
+      width: 200px; /* Adjust as needed for proper alignment */
+    }
+
+    .create-btn {
+      width: 150px; /* Adjust width as needed */
+      font-family: 'Roboto Mono', 'Calibri', 'Trebuchet MS', sans-serif;
+      font-size: 16px;
+      background-color: #393e46;
+      border-radius: 5px;
+      color: white;
+      text-decoration: none;
+      padding: 10px;
+      text-align: center;
+      margin-top: 20px; /* Add margin-top to center vertically */
+      margin-left: 164px;
+    }
+
+  </style>
 </head>
 
 <body>
-  <navbar>
-    <navbar__link-container>
-      <a href="{% url 'recipes:list' %}">All Recipes</a>
-      <a href="{% url 'recipes:create' %}">Create</a>
-      <a href="{% url 'recipes:records' %}">Records</a>
-      <a href="{% url 'logout' %}">Logout</a>
-    </navbar__link-container>
-  </navbar>
+  <ul>
+    <li><a href="{% url 'recipes:list' %}">All Recipes</a></li>
+    <li><a href="{% url 'recipes:records' %}">Records</a></li>
+    <li><a class="active" href="{% url 'recipes:create' %}">Create</a></li>
+    <li style="float:right"><a href="{% url 'logout' %}">Logout</a></li>
+  </ul>
 
-  <h1>Create Recipe</h1>
+  <h1>Create a Recipe</h1>
+  <h2>All fields are required.</h2>
+
+  {% if messages %}
+    {% for message in messages %}
+        <script>
+            alert("{{ message }}");
+        </script>
+    {% endfor %}
+  {% endif %}
+
   <form action="" method="POST" class="form_data" enctype="multipart/form-data">
     {% csrf_token %}
-    {{create_form.as_p}}
-    <button type="submit">Create</button>
+    <div class="form-field">
+      <label for="id_name">Name:</label>
+      {{ create_form.name }}
+    </div>
+    <div class="form-field">
+      <label for="id_cooking_time">Cooking time (min):</label>
+      {{ create_form.cooking_time }}
+    </div>
+    <div class="form-field">
+      <label for="id_difficulty">Difficulty:</label>
+      {{ create_form.difficulty }}
+    </div>
+    <div class="form-field">
+      <label for="id_ingredients">Ingredients:</label>
+      {{ create_form.ingredients }}
+    </div>
+    <div class="form-field">
+      <label for="id_pic">Picture:</label>
+      {{ create_form.pic }}
+    </div>
+    <button type="submit" class="create-btn">Create</button>
   </form>
+
+  {% comment %} <form action="" method="POST" class="form_data" enctype="multipart/form-data">
+    {% csrf_token %}
+    <div class="custom-form">
+      {{create_form.as_p}}
+    </div>  
+    <button type="submit">Create</button>
+  </form> {% endcomment %}
+
+  {% comment %} <form action="" method="POST" class="form_data" enctype="multipart/form-data">
+    {% csrf_token %}
+    {% for field in create_form %}
+    <div class="form-field">
+      {{ field.label_tag }}
+      {{ field }}
+      {% if field.help_text %}
+      <small>{{ field.help_text }}</small>
+      {% endif %}
+    </div>
+    {% endfor %}
+    <button type="submit">Create</button>
+  </form> {% endcomment %}
 
 </body>
 

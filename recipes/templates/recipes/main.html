@@ -1,7 +1,7 @@
 <!DOCTYPE html>  
 <html lang="en">  
   <head>
-    <title>RecipeApp | Recipes</title>
+    <title>RecipeApp | All Recipes</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     {% load static %}
     <link rel='stylesheet' type='text/css' href="{% static 'recipes/css/styles.css' %}">
@@ -14,45 +14,159 @@
         flex-direction: column;
         align-items: center;
         font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-        background-color: #ada397;
-    }
-    .form_data{
-        background-color: rgba(0, 0, 0, 0.61);
-        border-radius: 10px;
-        padding: 20px;
-        color: white;
+        {% comment %} background-color: #ada397; {% endcomment %}
+        background-color: #eaece5;
+      }
+
+      ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+        background-color: #333;
       }
       
+      li {
+        float: left;
+        border-right:1px solid #bbb;
+      }
       
+      li:last-child {
+        border-right: none;
+      }
+      
+      li a {
+        display: block;
+        color: white;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+      }
+      
+      li a:hover:not(.active) {
+        background-color: #111;
+      }
+      
+      .active {
+        background-color: #b2c2bf;
+      }
+
+      .recipe-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        margin-top: 20px; /* Adjust as needed */
+      }
+  
+      .recipe-card {
+        width: 320px;
+        height: 360px;
+        {% comment %} width: 22%; /* Adjust as needed */ {% endcomment %}
+        {% comment %} padding-top: 22%; /* Height matches width for square shape */ {% endcomment %}
+        margin-bottom: 20px;
+        position: relative;
+        background-color: #fff;
+        border-radius: 10px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        cursor: pointer;
+        overflow: hidden;
+      }
+      {% comment %} .recipe-card {
+        width: 22%; /* Adjust as needed */
+        margin-bottom: 20px; /* Adjust as needed */
+        padding: 20px;
+        background-color: #fff;
+        border-radius: 10px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        cursor: pointer; /* Change cursor to pointer on hover */
+      } {% endcomment %}
+      {% comment %} .recipe-card {
+        width: 22%; /* Fixed width for uniformity */
+        height: 250px;
+        margin-bottom: 20px; /* Adjust as needed */
+        padding: 20px;
+        background-color: #fff;
+        border-radius: 10px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        cursor: pointer; /* Change cursor to pointer on hover */
+      } {% endcomment %}
+  
+      .recipe-card img {
+        width: 300px;
+        height: 300px;
+        border-radius: 5px;
+      }
+      {% comment %} .recipe-card img {
+        width: 100%;
+        border-radius: 5px;
+      } {% endcomment %}
+
+      .recipe-name {
+        margin: 10px;
+        color: black;
+        text-align: center;
+        {% comment %} text-decoration: none; /* Remove underlines */ {% endcomment %}
+      }
+      
+      a {
+        text-decoration-color: black;
+      }
+      .recipe-pic {
+        margin: 10px;
+      }
+
     </style>
 </head> 
 <body>
-  <div class="navbar">
-    <div class="nav-container">
-      <a href="{% url 'recipes:list' %}">All Recipes</a>
-      <a href="{% url 'recipes:create' %}">Create</a>
-      <a href="{% url 'recipes:records' %}">Records</a>
-      <a href="{% url 'logout' %}">Logout</a>
-    </div>
+  <ul>
+    <li><a class="active" href="{% url 'recipes:list' %}">All Recipes</a></li>
+    <li><a href="{% url 'recipes:records' %}">Records</a></li>
+    <li><a href="{% url 'recipes:create' %}">Create</a></li>
+    <li style="float:right"><a href="{% url 'logout' %}">Logout</a></li>
+  </ul>
+  
+  <h1>Recipes' list</h1>        {% comment%} HTML tag for heading  {% endcomment%}
+  
+  <div class="recipe-container">
+    {% for object in object_list %}
+      <a href="{{ object.get_absolute_url }}" class="recipe-card">
+        <h2 class="recipe-name">{{ object.name }}</h2>
+        <div class="recipe-pic">
+        {% if object.pic %}
+          <img src="{{ object.pic.url }}" alt="{{ object.name }}">
+        {% endif %}
+        </div>
+      </a>
+    {% endfor %}
   </div>
-    <h1>Recipes' list</h1>        {% comment%} HTML tag for heading  {% endcomment%}
-    
-    <table border="1" cellpadding="5" cellspacing = "5">    {% comment%} start of table  {% endcomment%}
-      <tr> {% comment%}  the <tr> tag adds a new row   {% endcomment%}
-        <td>Recipes' Names</td>   {% comment%} the <td> tag adds a column  {% endcomment%}
-        <td>Recipes' Images</td>
-      </tr>
-      {% for object in object_list %} {% comment%} now go through the list element-by-element  {% endcomment%}
-      <tr>
-        <td><a href ="{{object.get_absolute_url}}"> {% comment%} add links to book names  {% endcomment%}
-          {{object.name}}</a></td> {% comment%} print the name of book  {% endcomment%}
-        <td><img src="{{object.pic.url}}" width="150" height="150" /></td>   {% comment%} display the picture of book  {% endcomment%}
-      </tr>
-      {% endfor %}
-      <p style="text-align: center"><a href="{% url 'recipes:records' %}"> Search Recipes </a></p>
-      <br>
-      <br>
-      <p style="text-align: center"><a href="{%url 'logout' %}"> Logout </a></p>
-    </table>
-  </body>
+
+  {% comment %} <div class="recipe-container">
+    {% for object in object_list %}
+      <div class="recipe-card">
+        <h2>{{ object.name }}</h2>
+        {% if object.pic %}
+          <img src="{{ object.pic.url }}" alt="{{ object.name }}">
+        {% endif %}
+      </div>
+    {% endfor %}
+  </div> {% endcomment %}
+
+  <table border="1" cellpadding="5" cellspacing = "5">    {% comment%} start of table  {% endcomment%}
+    <tr> {% comment%}  the <tr> tag adds a new row   {% endcomment%}
+      <td>Recipes' Names</td>   {% comment%} the <td> tag adds a column  {% endcomment%}
+      <td>Recipes' Images</td>
+    </tr>
+    {% for object in object_list %} {% comment%} now go through the list element-by-element  {% endcomment%}
+    <tr>
+      <td><a href ="{{object.get_absolute_url}}"> {% comment%} add links to book names  {% endcomment%}
+        {{object.name}}</a></td> {% comment%} print the name of book  {% endcomment%}
+      <td>
+        {% if object.pic %}
+          <img src="{{object.pic.url}}" width="150" height="150" />
+        {% endif %}
+      </td>   {% comment%} display the picture of book  {% endcomment%}
+    </tr>
+    {% endfor %}
+  </table>
+</body>
 </html>

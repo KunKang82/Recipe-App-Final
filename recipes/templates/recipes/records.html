@@ -24,12 +24,12 @@
 <!DOCTYPE html>  
 <html lang="en">  
 <head>
-    <title>RecipeApp | Recipes</title>
+    <title>RecipeApp | Records</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     {% load static %}
     <link rel='stylesheet' type='text/css' href="{% static 'recipes/css/styles.css' %}">
     <style type="text/css">
-    body{
+      body{
         {% comment %} background: url("{% static 'recipes/images/recipes.jpg' %}")  no-repeat fixed; {% endcomment %}
         background-size: cover;
         {% comment %} color: white; {% endcomment %}
@@ -37,37 +37,57 @@
         flex-direction: column;
         align-items: center;
         font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-        background-color: #ada397;
-    }
-    .form_data{
-        background-color: rgba(0, 0, 0, 0.61);
-        border-radius: 10px;
-        padding: 20px;
+        {% comment %} background-color: #ada397; {% endcomment %}
+        background-color: #eaece5;
+      }
+
+      ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+        background-color: #333;
+      }
+      
+      li {
+        float: left;
+        border-right:1px solid #bbb;
+      }
+      
+      li:last-child {
+        border-right: none;
+      }
+      
+      li a {
+        display: block;
         color: white;
-    }
-    
-          
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+      }
+      
+      li a:hover:not(.active) {
+        background-color: #111;
+      }
+      
+      .active {
+        background-color: #b2c2bf;
+      }
+
     </style>
 </head> 
 <body>
-  <div class="navbar">
-    <div class="nav-container">
-      <a href="{% url 'recipes:list' %}">All Recipes</a>
-      <a href="{% url 'recipes:create' %}">Create</a>
-      <a href="{% url 'recipes:records' %}">Records</a>
-      <a href="{% url 'logout' %}">Logout</a>
-    </div>
-  </div>
+  <ul>
+    <li><a href="{% url 'recipes:list' %}">All Recipes</a></li>
+    <li><a class="active" href="{% url 'recipes:records' %}">Records</a></li>
+    <li><a href="{% url 'recipes:create' %}">Create</a></li>
+    <li style="float:right"><a href="{% url 'logout' %}">Logout</a></li>
+  </ul>
 
-<h1 style="font-size: 45px">Search for recipes</h1>
+<h1>Search for recipes</h1>
 <br>
 <br>
-<p style="text-align: center"><a href="{% url 'recipes:list' %}"> Recipe Lists </a></p>
-<br>
-<p style="text-align: center"><a href="{%url 'logout' %}"> Logout </a></p>
-
-
-<hr>
+{% comment %} <hr> {% endcomment %}
 <form action="" method="POST" class="form_data">
   {% csrf_token %}
   {{form}}

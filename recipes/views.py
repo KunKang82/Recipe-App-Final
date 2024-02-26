@@ -1,4 +1,4 @@
-from django.shortcuts import render                         #imported by default
+from django.shortcuts import render, redirect                         #imported by default
 from django.views.generic import ListView, DetailView       #to display lists
 from .models import Recipe                                  #to access recipe model
 from django.contrib.auth.mixins import LoginRequiredMixin   #to protect class-based view
@@ -6,6 +6,7 @@ from django.contrib.auth.decorators import login_required   #to protect function
 from .forms import RecipesSearchForm, CreateRecipeForm
 import pandas as pd
 from .utils import get_recipename_from_id, get_chart
+from django.contrib import messages
 
 from django.db.models import Q  # Import Q object for comples queries
 
@@ -91,37 +92,50 @@ def records(request):
     return render(request, 'recipes/records.html', context)
 
 @login_required
+# def create_view(request):
+#     create_form = CreateRecipeForm(request.POST or None, request.FILES)
+#     name = None
+#     cooking_time = None
+#     difficulty = None
+#     ingredients = None
+#     pic = None
+
+#     if request.method == 'POST':
+
+#         try:
+#             recipe = Recipe.objects.create(
+#                 name = request.POST.get('name'),
+#                 cooking_time = request.POST.get('cooking_time'),
+#                 difficulty = request.POST.get('difficulty'),
+#                 ingredients = request.POST.get('ingredients'),
+#                 pic = request.POST.get('pic')
+#             )
+
+#             recipe.save()
+
+#         except:
+#             print('Error!!!')
+
+#     context = {
+#         'create_form': create_form,
+#         'name': name,
+#         'cooking_time': cooking_time,
+#         'difficulty': difficulty,
+#         'ingredients': ingredients,
+#         'pic': pic
+#     }
+
+#     return render(request, 'recipes/create.html', context)
+
 def create_view(request):
-    create_form = CreateRecipeForm(request.POST or None, request.FILES)
-    name = None
-    cooking_time = None
-    difficulty = None
-    ingredients = None
-    pic = None
-
     if request.method == 'POST':
+        create_form = CreateRecipeForm(request.POST, request.FILES)
+        if create_form.is_valid():
+            create_form.save()
+            messages.success(request, 'Recipe created successfully.')
+            return redirect('create')
+    else:
+        create_form = CreateRecipeForm()
 
-        try:
-            recipe = Recipe.objects.create(
-                name = request.POST.get('name'),
-                cooking_time = request.POST.get('cooking_time'),
-                difficulty = request.POST.get('difficulty'),
-                ingredients = request.POST.get('ingredients'),
-                pic = request.POST.get('pic')
-            )
-
-            recipe.save()
-
-        except:
-            print('Error!!!')
-
-    context = {
-        'create_form': create_form,
-        'name': name,
-        'cooking_time': cooking_time,
-        'difficulty': difficulty,
-        'ingredients': ingredients,
-        'pic': pic
-    }
-
+    context = {'create_form': create_form}
     return render(request, 'recipes/create.html', context)

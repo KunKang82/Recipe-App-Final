@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     {% load static %}
     <link rel="shortcut icon" href="{% static 'recipes/images/favicon.png' %}">
-    <link rel='stylesheet' type='text/css' href="{% static 'recipes/css/styles.css' %}">
+    {% comment %} <link rel='stylesheet' type='text/css' href="{% static 'recipes/css/styles.css' %}"> {% endcomment %}
     <style type="text/css">
         body {
             background: 
@@ -37,6 +37,7 @@
             color: #000000;
             font-family: 'Roboto Mono', 'Calibri', 'Trebuchet MS', sans-serif;
             text-align: center;
+            font-size: 150%;
         }
 
         /* Added styles */
@@ -45,17 +46,22 @@
             padding: 15px;
             border-radius: 5px;
             box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+            width: 560px;
+        }
+
+        form input {
+            font-family: bold, 'Roboto Mono', 'Calibri', 'Trebuchet MS', sans-serif;
         }
 
         .form-field {
-            margin-bottom: 10px;
+            margin-bottom: 25px;
         }
 
         .center-button {
             text-align: center; /* Centering the button */
         }
-
-        {% comment %} .login_btn {
+        
+        .login_btn {
             width: 70px;
             font-family: 'Roboto Mono', 'Calibri', 'Trebuchet MS', sans-serif;
             font-size: 16px;
@@ -65,26 +71,16 @@
             text-decoration: none;
             padding: 10px;
             text-align: center;
+            border: none;
+            cursor: pointer;
         }
 
         .back-home_btn {
-            width: 70px;
+            display: inline-block;
+            width: 400px !important;
             font-family: 'Roboto Mono', 'Calibri', 'Trebuchet MS', sans-serif;
             font-size: 16px;
             background-color: #393e46;
-            border-radius: 5px;
-            color: white;
-            text-decoration: none;
-            padding: 10px;
-            text-align: center;
-        } {% endcomment %}
-        .button,
-        .login_btn,
-        .back-home_btn{
-            width: 70px;
-            font-family: 'Roboto Mono', 'Calibri', 'Trebuchet MS', sans-serif;
-            font-size: 16px;
-            background-color: #393e46; /* Same background color as the Login button */
             border-radius: 5px;
             color: white;
             text-decoration: none;
@@ -93,33 +89,51 @@
             border: none; /* Remove border to match Login button */
             cursor: pointer; /* Change cursor to pointer on hover */
         }
+
+        .login_btn:hover,
+        .back-home_btn:hover {
+            background-color: #4e5259; /* Darken background color on hover */
+        }
+
+        #error_login {
+            margin: 0 auto;
+            border: 3px solid rgb(243, 0, 0);
+            background-color: rgb(255, 116, 32);
+            padding: 10px;
+            border-radius: 10px;
+            text-align: center;
+        }
+
     </style>
 </head>
 
 <body>
     <div class="auth_modal">
         <div>
-            {% comment %} <h1>Login</h1> print heading {% endcomment %}
             <h1>Recipe App</h1>
+        </div>
+        <div class='login-container'>
+            <h2>Log in to your account to see our list of recipes</h2>
             {% comment %} check for error message {% endcomment %}
             {% if error_message %}
             <div id="error_login">
                 {{error_message}}
             </div>
             {% endif %}
-        </div>
-        <div class='login-container'>
             {% comment %} print form {% endcomment %}
             <form action="" method="POST">
                 {% comment %} add Django security token {% endcomment %}
                 {% csrf_token %}
 
                 {% comment %} print form received from view {% endcomment %}
-                <div class="form_input">
+                <div class="form-field center-button">
                     {{form}}
                     {% comment %} add button {% endcomment %}
                     <button type="submit" class="login_btn">Login</button>
-                    {% comment %} <button type="submit"><a class="back-home_btn" href="{%url 'recipes:home'%}"> Cancel </a></button> {% endcomment %}
+                    <br>
+                    <br>
+                    <br>
+                    <a class="back-home_btn" href="{%url 'recipes:home'%}"> Back to home screen </a>
                     {% comment %} <button style="border: 0px;"><a class="back-home_btn" href="{%url 'recipes:home'%}"> Cancel </a></button> {% endcomment %}
                 </div>
             </form>

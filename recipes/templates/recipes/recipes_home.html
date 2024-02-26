@@ -62,6 +62,7 @@
             color: #000000;
             font-family: 'Roboto Mono', 'Calibri', 'Trebuchet MS', sans-serif;
             text-align: center;
+            font-size: 150%;
         }
 
         /* Added styles */
@@ -70,6 +71,7 @@
             padding: 15px;
             border-radius: 5px;
             box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+            width: 560px;
         }
 
         .form-field {
@@ -93,6 +95,10 @@
             text-align: center;
         }
 
+        .login_btn:hover {
+            background-color: #4e5259; /* Darken background color on hover */
+        }
+
     </style>
 </head>
 
@@ -103,7 +109,7 @@
         <h1>Recipe App</h1>    
     </div>
     <div class='login-container'>
-        <h3>Log in to your account to see our list of recipes</h3>
+        <h2>Log in to your account to see our list of recipes</h2>
         <div class="center-button">
             <a href="{%url 'login' %}" class="login_btn"> Login </a>
         </div>

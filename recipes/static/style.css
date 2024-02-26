@@ -228,21 +228,22 @@ form {
   text-align: center;
 } */
 
-.login_btn,
+/* .login_btn,
 .back-home_btn, 
 .logout_btn {
   width: 70px;
     font-family: 'Roboto Mono', 'Calibri', 'Trebuchet MS', sans-serif;
     font-size: 16px;
-    background-color: #393e46; /* Same background color as the Login button */
+    background-color: #393e46; 
     border-radius: 5px;
     color: white;
     text-decoration: none;
     padding: 10px;
     text-align: center;
-    border: none; /* Remove border to match Login button */
-    cursor: pointer; /* Change cursor to pointer on hover */
-}
+    border: none; 
+    cursor: pointer;
+} */
+
 /* 
 .back-home_btn {
   background-color: rgb(123, 49, 33);
