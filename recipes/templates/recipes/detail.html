@@ -10,12 +10,10 @@
       body{
         {% comment %} background: url("{% static 'recipes/images/recipes.jpg' %}")  no-repeat fixed; {% endcomment %}
         background-size: cover;
-        {% comment %} color: white; {% endcomment %}
         display: flex;
         flex-direction: column;
         align-items: center;
         font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-        {% comment %} background-color: #ada397; {% endcomment %}
         background-color: #eaece5;
       }
     
@@ -48,10 +46,6 @@
         background-color: #111;
       }
       
-      {% comment %} .active {
-        background-color: #b2c2bf;
-      } {% endcomment %}
-
     </style>
   </head> 
   <body>
@@ -64,8 +58,9 @@
       <h1 style="text-align: center">Recipe details</h1>        {% comment%} HTML tag for heading  {% endcomment%}
       
       {% if object.pic %}
-        <img src="{{object.pic.url}}" width="200" height="200" />
+        <img src="{{object.pic.url}}" width="350" height="350" />
       {% endif %}
+
       <h2>Details: {{object.name}}</h2>
       
       <b>Recipe Name: </b> {{object.name}}  <br>

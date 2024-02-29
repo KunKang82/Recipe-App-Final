@@ -7,14 +7,11 @@
     <link rel='stylesheet' type='text/css' href="{% static 'recipes/css/styles.css' %}">
     <style type="text/css">
       body{
-        {% comment %} background: url("{% static 'recipes/images/recipes.jpg' %}")  no-repeat fixed; {% endcomment %}
         background-size: cover;
-        {% comment %} color: white; {% endcomment %}
         display: flex;
         flex-direction: column;
         align-items: center;
         font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-        {% comment %} background-color: #ada397; {% endcomment %}
         background-color: #eaece5;
       }
 
@@ -61,8 +58,6 @@
       .recipe-card {
         width: 320px;
         height: 360px;
-        {% comment %} width: 22%; /* Adjust as needed */ {% endcomment %}
-        {% comment %} padding-top: 22%; /* Height matches width for square shape */ {% endcomment %}
         margin-bottom: 20px;
         position: relative;
         background-color: #fff;
@@ -71,41 +66,17 @@
         cursor: pointer;
         overflow: hidden;
       }
-      {% comment %} .recipe-card {
-        width: 22%; /* Adjust as needed */
-        margin-bottom: 20px; /* Adjust as needed */
-        padding: 20px;
-        background-color: #fff;
-        border-radius: 10px;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        cursor: pointer; /* Change cursor to pointer on hover */
-      } {% endcomment %}
-      {% comment %} .recipe-card {
-        width: 22%; /* Fixed width for uniformity */
-        height: 250px;
-        margin-bottom: 20px; /* Adjust as needed */
-        padding: 20px;
-        background-color: #fff;
-        border-radius: 10px;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        cursor: pointer; /* Change cursor to pointer on hover */
-      } {% endcomment %}
   
       .recipe-card img {
         width: 300px;
         height: 300px;
         border-radius: 5px;
       }
-      {% comment %} .recipe-card img {
-        width: 100%;
-        border-radius: 5px;
-      } {% endcomment %}
-
+      
       .recipe-name {
         margin: 10px;
         color: black;
         text-align: center;
-        {% comment %} text-decoration: none; /* Remove underlines */ {% endcomment %}
       }
       
       a {
@@ -139,34 +110,5 @@
       </a>
     {% endfor %}
   </div>
-
-  {% comment %} <div class="recipe-container">
-    {% for object in object_list %}
-      <div class="recipe-card">
-        <h2>{{ object.name }}</h2>
-        {% if object.pic %}
-          <img src="{{ object.pic.url }}" alt="{{ object.name }}">
-        {% endif %}
-      </div>
-    {% endfor %}
-  </div> {% endcomment %}
-
-  <table border="1" cellpadding="5" cellspacing = "5">    {% comment%} start of table  {% endcomment%}
-    <tr> {% comment%}  the <tr> tag adds a new row   {% endcomment%}
-      <td>Recipes' Names</td>   {% comment%} the <td> tag adds a column  {% endcomment%}
-      <td>Recipes' Images</td>
-    </tr>
-    {% for object in object_list %} {% comment%} now go through the list element-by-element  {% endcomment%}
-    <tr>
-      <td><a href ="{{object.get_absolute_url}}"> {% comment%} add links to book names  {% endcomment%}
-        {{object.name}}</a></td> {% comment%} print the name of book  {% endcomment%}
-      <td>
-        {% if object.pic %}
-          <img src="{{object.pic.url}}" width="150" height="150" />
-        {% endif %}
-      </td>   {% comment%} display the picture of book  {% endcomment%}
-    </tr>
-    {% endfor %}
-  </table>
 </body>
 </html>

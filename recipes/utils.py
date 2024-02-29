@@ -43,25 +43,33 @@ def get_graph():
 def get_chart(chart_type, data, **kwargs):
     plt.switch_backend('AGG')
 
-    fig = plt.figure(figsize=(6, 3))
+    fig = plt.figure(figsize=(11.5, 6))
 
     # select chart_type based on user input from the form
     if chart_type == '#1':
         plt.bar(data['name'], data['cooking_time'])
-        plt.xlabel("Name")
-        plt.ylabel("Cooking Time")
+        plt.xlabel("Recipe Name(s)", fontsize=15, fontweight='bold') # Change font size of x-label
+        plt.ylabel("Cooking Time", fontsize=15, fontweight='bold') # Change font size of y-label
+        plt.xticks(rotation=70)
 
     elif chart_type == '#2':
         labels = kwargs.get('labels')
-        plt.pie(data['cooking_time'], labels=labels)
+        # Customize pie chart size of labels
+        plt.pie(data['cooking_time'], labels=labels, labeldistance=1.1, textprops={'fontsize': 8})
+        # Add label at the bottom
+        plt.xlabel("Recipe Name(s)", fontsize=15, fontweight='bold')  # Change font size of x-label
 
     elif chart_type == '#3':
         plt.plot(data['name'], data['cooking_time'])
-        plt.xlabel("Name")
-        plt.ylabel("Cooking Time")
+        plt.xlabel("Recipe Name(s)", fontsize=15, fontweight='bold')
+        plt.ylabel("Cooking Time", fontsize=15, fontweight='bold')
+        plt.xticks(rotation=70)
 
     else:
         print('unknown chart type')
+        
+    # Adjust margins to prevent cutting off labels
+    # plt.subplots_adjust(left=0.15, right=0.9, bottom=0.15, top=0.9)
 
     # specify layout details
     plt.tight_layout()
