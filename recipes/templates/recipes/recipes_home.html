@@ -1,28 +1,3 @@
-{% comment %} {% load static %}
-<head> 
-  <link rel="stylesheet" href="static/style.css"> 
-  <script src="{% static 'sales/home.js' %}" defer></script>
-</head>
-
-<!DOCTYPE html>
-<html>
-  <title>
-      Recipe's Home
-  </title>
-  <body>
-    <h1 style="text-align:center">Welcome to our Recipes</h1>
-    <br>
-    <br>
-    <p style="text-align: center"><a href="{%url 'login' %}"> Login </a></p>
-    <br>
-    <p style="text-align: center"><a href="{%url 'logout' %}"> Logout </a></p>
-    <br>
-    <br>
-    <br>
-    <img src="{% static 'recipes/images/recipes.jpg' %}" alt="home" width="600" height="300">
-  </body>
-</html> {% endcomment %}
-           
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -86,7 +61,6 @@
             width: 70px;
             font-family: 'Roboto Mono', 'Calibri', 'Trebuchet MS', sans-serif;
             font-size: 16px;
-            {% comment %} background-color: rgb(255, 62, 32); {% endcomment %}
             background-color: #393e46;
             border-radius: 5px;
             color: white;
@@ -104,8 +78,6 @@
 
 <body>
     <div>
-        {% comment %} <img src="{% static 'recipes/images/logo.png' %}" width="300px"> {% endcomment %}
-        {% comment %} <h1>Welcome to my</h1> {% endcomment %}
         <h1>Recipe App</h1>    
     </div>
     <div class='login-container'>
