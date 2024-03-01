@@ -68,9 +68,6 @@ def get_chart(chart_type, data, **kwargs):
     else:
         print('unknown chart type')
         
-    # Adjust margins to prevent cutting off labels
-    # plt.subplots_adjust(left=0.15, right=0.9, bottom=0.15, top=0.9)
-
     # specify layout details
     plt.tight_layout()
 

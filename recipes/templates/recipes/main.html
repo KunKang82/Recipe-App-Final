@@ -4,6 +4,7 @@
     <title>RecipeApp | All Recipes</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     {% load static %}
+    <link rel="shortcut icon" href="{% static 'recipes/images/recipe-book.png' %}">
     <link rel='stylesheet' type='text/css' href="{% static 'recipes/css/styles.css' %}">
     <style type="text/css">
       body{
@@ -14,78 +15,6 @@
         font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
         background-color: #eaece5;
       }
-
-      ul {
-        list-style-type: none;
-        margin: 0;
-        padding: 0;
-        overflow: hidden;
-        background-color: #333;
-      }
-      
-      li {
-        float: left;
-        border-right:1px solid #bbb;
-      }
-      
-      li:last-child {
-        border-right: none;
-      }
-      
-      li a {
-        display: block;
-        color: white;
-        text-align: center;
-        padding: 14px 16px;
-        text-decoration: none;
-      }
-      
-      li a:hover:not(.active) {
-        background-color: #111;
-      }
-      
-      .active {
-        background-color: #b2c2bf;
-      }
-
-      .recipe-container {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-around;
-        margin-top: 20px; /* Adjust as needed */
-      }
-  
-      .recipe-card {
-        width: 320px;
-        height: 360px;
-        margin-bottom: 20px;
-        position: relative;
-        background-color: #fff;
-        border-radius: 10px;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        cursor: pointer;
-        overflow: hidden;
-      }
-  
-      .recipe-card img {
-        width: 300px;
-        height: 300px;
-        border-radius: 5px;
-      }
-      
-      .recipe-name {
-        margin: 10px;
-        color: black;
-        text-align: center;
-      }
-      
-      a {
-        text-decoration-color: black;
-      }
-      .recipe-pic {
-        margin: 10px;
-      }
-
     </style>
 </head> 
 <body>

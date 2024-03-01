@@ -5,47 +5,17 @@
     <title>RecipeApp | Recipe details</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     {% load static %}
+    <link rel="shortcut icon" href="{% static 'recipes/images/recipe-book.png' %}">
     <link rel='stylesheet' type='text/css' href="{% static 'recipes/css/styles.css' %}">
     <style type="text/css">
       body{
-        {% comment %} background: url("{% static 'recipes/images/recipes.jpg' %}")  no-repeat fixed; {% endcomment %}
         background-size: cover;
         display: flex;
         flex-direction: column;
         align-items: center;
         font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
         background-color: #eaece5;
-      }
-    
-      ul {
-        list-style-type: none;
-        margin: 0;
-        padding: 0;
-        overflow: hidden;
-        background-color: #333;
-      }
-      
-      li {
-        float: left;
-        border-right:1px solid #bbb;
-      }
-      
-      li:last-child {
-        border-right: none;
-      }
-      
-      li a {
-        display: block;
-        color: white;
-        text-align: center;
-        padding: 14px 16px;
-        text-decoration: none;
-      }
-      
-      li a:hover:not(.active) {
-        background-color: #111;
-      }
-      
+      }      
     </style>
   </head> 
   <body>

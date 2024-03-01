@@ -5,8 +5,8 @@
     <title>RecipeApp Login</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     {% load static %}
-    <link rel="shortcut icon" href="{% static 'recipes/images/favicon.png' %}">
-    {% comment %} <link rel='stylesheet' type='text/css' href="{% static 'recipes/css/styles.css' %}"> {% endcomment %}
+    <link rel="shortcut icon" href="{% static 'recipes/images/recipe-book.png' %}">
+    <link rel='stylesheet' type='text/css' href="{% static 'recipes/css/styles.css' %}">
     <style type="text/css">
         body {
             background: 
@@ -19,91 +19,6 @@
             margin-top: 10vh;
             padding: 3px;
         }
-
-        h1 {
-            font-family: 'Bebas Neue', sans-serif;
-            color: #ffffff;
-            text-align: center;
-            font-size: 100px;
-            letter-spacing: 5px;  
-            text-shadow: 
-                    -10px -10px 0 #000, 
-                    3px -3px 0 #000, 
-                    -3px 3px 0 #000, 
-                    3px 3px 0 #000;
-        }
-
-        h2 {
-            color: #000000;
-            font-family: 'Roboto Mono', 'Calibri', 'Trebuchet MS', sans-serif;
-            text-align: center;
-            font-size: 150%;
-        }
-
-        /* Added styles */
-        .login-container {
-            background: #ffffff44;
-            padding: 15px;
-            border-radius: 5px;
-            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-            width: 560px;
-        }
-
-        form input {
-            font-family: bold, 'Roboto Mono', 'Calibri', 'Trebuchet MS', sans-serif;
-        }
-
-        .form-field {
-            margin-bottom: 25px;
-        }
-
-        .center-button {
-            text-align: center; /* Centering the button */
-        }
-        
-        .login_btn {
-            width: 70px;
-            font-family: 'Roboto Mono', 'Calibri', 'Trebuchet MS', sans-serif;
-            font-size: 16px;
-            background-color: #393e46;
-            border-radius: 5px;
-            color: white;
-            text-decoration: none;
-            padding: 10px;
-            text-align: center;
-            border: none;
-            cursor: pointer;
-        }
-
-        .back-home_btn {
-            display: inline-block;
-            width: 400px !important;
-            font-family: 'Roboto Mono', 'Calibri', 'Trebuchet MS', sans-serif;
-            font-size: 16px;
-            background-color: #393e46;
-            border-radius: 5px;
-            color: white;
-            text-decoration: none;
-            padding: 10px;
-            text-align: center;
-            border: none; /* Remove border to match Login button */
-            cursor: pointer; /* Change cursor to pointer on hover */
-        }
-
-        .login_btn:hover,
-        .back-home_btn:hover {
-            background-color: #4e5259; /* Darken background color on hover */
-        }
-
-        #error_login {
-            margin: 0 auto;
-            border: 3px solid rgb(243, 0, 0);
-            background-color: rgb(255, 116, 32);
-            padding: 10px;
-            border-radius: 10px;
-            text-align: center;
-        }
-
     </style>
 </head>
 
@@ -121,21 +36,19 @@
             </div>
             {% endif %}
             {% comment %} print form {% endcomment %}
-            <form action="" method="POST">
+            <form action="" method="POST"> 
                 {% comment %} add Django security token {% endcomment %}
-                {% csrf_token %}
+                {% csrf_token %} 
 
                 {% comment %} print form received from view {% endcomment %}
                 <div class="form-field center-button">
                     {{form}}
-                    {% comment %} add button {% endcomment %}
                     <button type="submit" class="login_btn">Login</button>
                     <br>
                     <br>
                     <br>
                     <a class="back-home_btn" href="{%url 'recipes:home'%}"> Back to home screen </a>
-                    {% comment %} <button style="border: 0px;"><a class="back-home_btn" href="{%url 'recipes:home'%}"> Cancel </a></button> {% endcomment %}
-                </div>
+                </div> 
             </form>
         </div>
     </div>

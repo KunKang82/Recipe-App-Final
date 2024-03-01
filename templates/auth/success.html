@@ -1,35 +1,10 @@
-{% comment %} {% load static %}
-<head> 
-  <link rel="stylesheet" href="static/style.css"> 
-  <script src="{% static 'sales/home.js' %}" defer></script>
-</head>
-
-<!DOCTYPE html>
-<html>
-  <title>
-      Recipe's Home
-  </title>
-  <body>
-    <h1 style="text-align:center">Welcome to our Recipes</h1>
-    <br>
-    <br>
-    <p style="text-align: center"><a href="{%url 'login' %}"> Login </a></p>
-    <br>
-    <p style="text-align: center"><a href="{%url 'logout' %}"> Logout </a></p>
-    <br>
-    <br>
-    <br>
-    <img src="{% static 'recipes/images/recipes.jpg' %}" alt="home" width="600" height="300">
-  </body>
-</html> {% endcomment %}
-           
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <title>RecipeApp | Home</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     {% load static %}
-    <link rel="shortcut icon" href="{% static 'recipes/images/favicon.png' %}">
+    <link rel="shortcut icon" href="{% static 'recipes/images/recipe-book.png' %}">
     <link rel='stylesheet' type='text/css' href="{% static 'recipes/css/styles.css' %}">
     <script src="{% static 'sales/home.js' %}" defer></script>
     <style type="text/css">
@@ -44,60 +19,6 @@
             margin-top: 10vh;
             padding: 3px;
         }
-
-        h1 {
-            font-family: 'Bebas Neue', sans-serif;
-            color: #ffffff;
-            text-align: center;
-            font-size: 100px;
-            letter-spacing: 5px;  
-            text-shadow: 
-                    -10px -10px 0 #000, 
-                    3px -3px 0 #000, 
-                    -3px 3px 0 #000, 
-                    3px 3px 0 #000;
-        }
-
-        h2 {
-            color: #000000;
-            font-family: 'Roboto Mono', 'Calibri', 'Trebuchet MS', sans-serif;
-            text-align: center;
-            font-size: 150%;
-        }
-
-        /* Added styles */
-        .login-container {
-            background: #ffffff44;
-            padding: 15px;
-            border-radius: 5px;
-            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-            width: 560px;
-        }
-
-        .form-field {
-            margin-bottom: 10px;
-        }
-
-        .center-button {
-            text-align: center; /* Centering the button */
-        }
-
-        .login_btn {
-            width: 70px;
-            font-family: 'Roboto Mono', 'Calibri', 'Trebuchet MS', sans-serif;
-            font-size: 16px;
-            background-color: #393e46;
-            border-radius: 5px;
-            color: white;
-            text-decoration: none;
-            padding: 10px;
-            text-align: center;
-        }
-
-        .login_btn:hover {
-            background-color: #4e5259; /* Darken background color on hover */
-        }
-
     </style>
 </head>
 
