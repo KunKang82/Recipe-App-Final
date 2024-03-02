@@ -24,14 +24,14 @@
     <li><a href="{% url 'recipes:create' %}">Create</a></li>
     <li style="float:right"><a href="{% url 'logout' %}">Logout</a></li>
   </ul>
-
   <h1>Search for recipes</h1>
   <br>
   <br>
-  <form action="" method="POST" class="form_data">
+  <form action="" method="POST" class="form_data" id="search-form">
     {% csrf_token %}
     {{form}}
-    <button type="submit" >search</button>
+    <button type="submit" class="search-btn">Search</button>
+    <a href="{% url 'recipes:records' %}" class="reset-btn">Reset Search</a>
   </form> 
   <br>
   <br>
@@ -44,7 +44,6 @@
     {% else %}
     <h3> No Data</h3>
     {% endif %}   
-  </div> 
-
+  </div>
 </body>
 </html>

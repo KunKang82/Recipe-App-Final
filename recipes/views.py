@@ -47,13 +47,13 @@ def records(request):
 
                 # If recipe_name is provided, add a filter for name containing the input
                 if recipe_name:
-                    q_objects |= Q(name__icontains=recipe_name)
+                    q_objects &= Q(name__icontains=recipe_name)
                 # If ingredients is provided, add a filter for ingredients containing the input
                 if ingredients:
-                    q_objects |= Q(ingredients__icontains=ingredients)
+                    q_objects &= Q(ingredients__icontains=ingredients)
                 # If recipe_diff is provided, add a filter for difficulty matching the input
                 if recipe_diff:
-                    q_objects |= Q(difficulty=recipe_diff)
+                    q_objects &= Q(difficulty=recipe_diff)
 
                 # Filter recipes based on the constructed query
                 qs = Recipe.objects.filter(q_objects)
