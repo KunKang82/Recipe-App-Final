@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>RecipeApp | About</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    {% load static %}
+    <link rel="shortcut icon" href="{% static 'recipes/images/recipe-book.png' %}">
+    <link rel='stylesheet' type='text/css' href="{% static 'recipes/css/styles.css' %}">
+    <style type="text/css">
+      body {
+        font-family: 'Lato', sans-serif;
+        background-color: #eaece5;
+        margin: 0;
+        padding: 0;
+      }
+
+      p {
+        font-size: 20px; 
+        line-height: 1.6;
+        color: #666;
+        max-width: 800px;
+        margin: auto; /* Center the paragraph */
+        padding: 0 1rem;
+      }
+
+      main {
+        margin: 50px auto;
+        max-width: 1500px;
+        text-align: center;
+      }
+
+      .about {
+        background-color: #fff;
+        border-radius: 10px;
+        padding: 20px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        width: 1160px;
+        margin: 0 auto;
+      }
+
+      .about h2 {
+        color: #333;
+      }
+
+      .about p {
+        color: #666;
+        line-height: 1.6;
+      }
+
+      .about a {
+        display: inline-block;
+        margin-top: 20px;
+        padding: 10px 20px;
+        background-color: #4CAF50;
+        color: #fff;
+        text-decoration: none;
+        border-radius: 5px;
+      }
+
+      .about a:hover {
+        background-color: #45a049;
+      }
+
+      .social-media a {
+        margin: 10px;
+      }
+
+      .social-media img {
+        vertical-align: middle;
+      }
+
+      .page-footer {
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+        background-color: #333;
+        color: #fff;
+        text-align: center;
+        padding: 12px 0;
+      }
+
+      footer p {
+        margin-bottom: 10px;
+      }
+
+      .links {
+        margin-top: 20px;
+        background-color: #fff;
+        border-radius: 10px;
+        padding: 20px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
+      }
+  
+      .links p {
+        font-size: 18px;
+        margin-bottom: 10px;
+      }
+  
+      .links button {
+        display: inline-block;
+        padding: 10px 20px;
+        background-color: #4CAF50;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+      }
+  
+      .links button:hover {
+        background-color: #45a049;
+      }      
+
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Responsive grid */
+        grid-gap: 20px;
+        margin: 0 auto; /* Center the grid */
+        max-width: 1200px; /* Limit the width of the grid */
+      }
+      
+      .grid__item {
+        background-color: #fff;
+        border-radius: 10px;
+        padding: 20px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        text-align: center; /* Center text */
+        max-width: 100%; /* Ensure images don't exceed the grid item width */
+      }
+      
+      .grid-img {
+        max-width: 100%; /* Ensure images don't exceed the width of their container */
+        height: auto; /* Maintain aspect ratio */
+      }
+    
+      .projects-heading {
+        font-size: 35px;
+        color: #333;
+        margin-bottom: 20px;
+        text-align: center; /* Center the heading */
+      }
+
+    </style>
+    
+    <body>    
+      <ul>
+        <li><a href="{% url 'recipes:list' %}">All Recipes</a></li>
+        <li><a href="{% url 'recipes:records' %}">Records</a></li>
+        <li><a href="{% url 'recipes:create' %}">Create</a></li>
+        <li><a class="active" href="{% url 'recipes:about' %}">About</a></li>
+        <li style="float:right"><a href="{% url 'logout' %}">Logout</a></li>
+      </ul>
+    <main>
+        <div class="about">
+            <h2><span>About Page</span></h2>
+            <p>My name is Chris Kang, a recent graduate from the CareerFoundry Full Stack Program. 
+              I have a passion for coding and enjoy creating websites and web applications. 
+              I'm currently seeking a full-time position where I can apply and expand my skills. 
+              If you like what you see, please feel free to explore my other projects and connect with me. I look forward to hearing from you!</p>
+        </div>
+        <br>
+
+        <section>
+          <h2 class="projects-heading"><span>Check out some of my projects<span></h2>
+          <div class="grid">
+              <!-- Grid items will live here -->
+              <div class="grid__item">
+                  <h2>To Do List App</h2>
+                  <a href="https://kunkang82.github.io/To-do-list-app/" target="_blank"><img src="{% static 'recipes/images/toDoListApp.jpg' %}" class="grid-img" alt="To Do List App"></a>
+                  <p>
+                      This is a simple to-do-list app made with JQuery.
+                  </p>
+                  <a href="https://github.com/KunKang82/To-do-list-app" target="_blank">
+                    <img src="{% static 'recipes/images/600px-Octicons-mark-github.svg.png' %}" alt="Github" height="30">
+                  </a>
+              </div>
+              <div class="grid__item">
+                  <h2>Pokedex</h2>
+                  <a href="https://kunkang82.github.io/Simple-js-app/" target="_blank"><img src="{% static 'recipes/images/pokedex.jpg' %}" class="grid-img" alt="Pokedex"></a>
+                  <p>
+                      This is a small pokemon web application that loads data from an external public API and enables the
+                      viewing of data points.
+                  </p>
+                  <a href="https://github.com/KunKang82/Simple-js-app" target="_blank">
+                    <img src="{% static 'recipes/images/600px-Octicons-mark-github.svg.png' %}" alt="Github" height="30">
+                  </a>
+              </div>
+              <div class="grid__item">
+                <h2>myFlix-Angular-client</h2>
+                <a href="https://kunkang82.github.io/myFlix-Angular-client/welcome" target="_blank"><img src="{% static 'recipes/images/myFlix-angular.jpg' %}" class="grid-img" alt="myFlix-angular"></a>
+                <p>
+                  This is the client-side for an app called myFlix based on its existing server-side code (REST API
+                  and database) using Angular.
+                </p>
+                <a href="https://github.com/KunKang82/myFlix-Angular-client" target="_blank">
+                  <img src="{% static 'recipes/images/600px-Octicons-mark-github.svg.png' %}" alt="Github" height="30">
+                </a>
+              </div>              
+              <div class="grid__item">
+                  <h2>myFlix-React-client</h2>
+                  <a href="https://myflix-application.netlify.app/login" target="_blank"><img src="{% static 'recipes/images/myFlix-react.jpg' %}" class="grid-img" alt="myFlix-react"></a>
+                  <p>
+                      This is the client-side for an app called myFlix based on its existing server-side code (REST API
+                      and database) using React.
+                  </p>
+                  <a href="https://github.com/KunKang82/myFlix-client" target="_blank">
+                    <img src="{% static 'recipes/images/600px-Octicons-mark-github.svg.png' %}" alt="Github" height="30"></a>
+              </div>
+              <div class="grid__item">
+                <h2>Movie API</h2>                
+                <a href="https://github.com/KunKang82/movie_api" target="_blank"><img src="{% static 'recipes/images/movie_api.jpg' %}" class="grid-img" alt="movie-api" width="400"></a>
+                <p>
+                  This API is the server-side component of a movies web application. The web application provides users with access to information about different movies, the director, and genres.
+                </p>
+                <a href="https://github.com/KunKang82/movie_api" target="_blank">
+                  <img src="{% static 'recipes/images/600px-Octicons-mark-github.svg.png' %}" alt="Github" height="30">
+                </a>
+              </div>            
+              <div class="grid__item">
+                <h2>Chat app</h2>
+                <a href="https://youtu.be/wtf2lQQC_oE" target="_blank"><img src="{% static 'recipes/images/ChatApp.jpg' %}" class="ChatApp" alt="grid-img" width="350"></a>
+                <p>
+                  Chat app for mobile devices that provides users with a chat interface and options to share images
+                  and theri location.
+                </p>
+                <a href="https://github.com/KunKang82/chat_app" target="_blank">
+                  <img src="{% static 'recipes/images/600px-Octicons-mark-github.svg.png' %}" alt="Github" height="30">
+                </a>
+              </div>
+              <div class="grid__item">
+                    <h2>Meet app</h2>
+                    <a href="https://kunkang82.github.io/meet/" target="_blank"><img src="{% static 'recipes/images/MeetApp.jpg' %}" class="grid-img" alt="Meet App"></a>
+                    <p>
+                        Meet is a serverless, progressive web application (PWA) using React with a test-driven development
+                        technique. The application uses the Google Calendar API to fetch upcoming events in a city.
+                    </p>
+                    <a href="https://github.com/KunKang82/meet" target="_blank">
+                      <img src="{% static 'recipes/images/600px-Octicons-mark-github.svg.png' %}" alt="Github" height="30">
+                    </a>
+                </div>
+          </div>
+      </section>
+    </main>     
+
+    <!-- Add Social media links -->
+    <footer class="page-footer">
+      <p>Find me on</p>
+      <div class="social-media">          
+          <a href="https://github.com/KunKang82" target="_blank">
+            <img src="{% static 'recipes/images/github_connection_logo_network_social_icon.png' %}" alt="Github" height="30">
+          </a>
+          <a href="https://www.linkedin.com/in/kun-woo-kang-6bb0a3284/" target="_blank">
+            <img src="{% static 'recipes/images/linkedin_icon.png' %}" alt="LinkedIn" height="30" style="filter:brightness(125%);">
+          </a>
+          <a href="http://twitter.com/ChrisKa32150694" target="_blank">
+            <img src="{% static 'recipes/images/circle_logo_media_network_social_icon.png' %}" alt="Twitter" height="30">
+        </a>
+          <a href="mailto:kunkang82@gmail.com">
+            <img src="{% static 'recipes/images/email.png' %}" alt="Email" height="30" onclick="sendEmail()">
+          </a>
+      </div>
+  </footer>
+</body>
+
+</html>

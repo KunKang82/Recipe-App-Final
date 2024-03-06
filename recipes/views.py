@@ -14,6 +14,9 @@ from django.db.models import Q  # Import Q object for comples queries
 def recipes_home(request):
     return render(request, 'recipes/recipes_home.html')
 
+def about(request):
+    return render(request, 'recipes/about.html')
+
 class RecipeListView(LoginRequiredMixin, ListView):         #class-based view
     model = Recipe                                            #specify model
     template_name = 'recipes/main.html'                       #specity template
