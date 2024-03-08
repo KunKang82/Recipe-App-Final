@@ -1,4 +1,4 @@
-# Delicious Recipes Web App
+# Recipes Web App
 
 ## Introduction
 
@@ -12,7 +12,7 @@ The project encompasses a range of features tailored to meet the diverse needs o
 
 - **User Authentication**: Secure login and logout functionality for user accounts.
 - **Recipe Management**: Create, edit, and delete recipes with ease, including detailed information such as ingredients, cooking time, and difficulty level.
-- **Search Functionality**: Effortlessly search for recipes based on ingredients or specific parameters.
+- **Search Functionality**: Effortlessly search for recipes based on names, ingredients or/and difficulty levels.
 - **Dynamic Content**: Display detailed recipe information upon user request, enhancing user engagement.
 - **Data Visualization**: Visualize recipe trends and statistics for better insights and decision-making.
 - **Error Handling**: Ensure smooth user experience through comprehensive error handling and validation mechanisms.
@@ -23,7 +23,6 @@ The project encompasses a range of features tailored to meet the diverse needs o
 
 - **Recipe Exploration**: Discover new recipes and cooking ideas tailored to personal preferences.
 - **Recipe Management**: Organize and manage personal recipe collections efficiently.
-- **Community Engagement**: Engage with other users through recipe sharing and feedback mechanisms.
 
 ## Installation Guide
 
@@ -37,7 +36,7 @@ The project encompasses a range of features tailored to meet the diverse needs o
 ```
 **3. Database Setup:**
   ```bash
-  Configure the database settings in 'settings.py' For PostgreSQL and SQLite
+  Configure the database settings in 'settings.py' for SQLite
   Run migrations:
     python manage.py migrate
 ```
@@ -47,14 +46,14 @@ The project encompasses a range of features tailored to meet the diverse needs o
 ```
 **5. Access the Application:**
   ```bash
-  Open your browser and navigate to 'http://127.0.0.1:8000' to explore Delicious Recipes.
+  Open your browser and navigate to 'http://127.0.0.1:8000' to explore Recipes App.
 ```
 ## Tech Stack
 - Python
 - Django
 - HTML/CSS
-- PostgreSQL
 - SQLite
+- Heroku
 
 ## Contact Information
 For inquries or feedback, feel free to reach out:

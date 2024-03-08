@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>RecipeApp | Records</title>
+    <title>RecipeApp | Search</title>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -33,7 +33,7 @@
   <body>
     <ul>
       <li><a href="{% url 'recipes:list' %}">All Recipes</a></li>
-      <li><a class="active" href="{% url 'recipes:records' %}">Records</a></li>
+      <li><a class="active" href="{% url 'recipes:search' %}">Search</a></li>
       <li><a href="{% url 'recipes:create' %}">Create</a></li>
       <li><a href="{% url 'recipes:about' %}">About</a></li>
       <li style="float: right"><a href="{% url 'logout' %}">Logout</a></li>
@@ -44,7 +44,7 @@
     <form action="" method="POST" class="form_data" id="search-form">
       {% csrf_token %} {{form}}
       <button type="submit" class="search-btn">Search</button>
-      <a href="{% url 'recipes:records' %}" class="reset-btn">Reset Search</a>
+      <a href="{% url 'recipes:search' %}" class="reset-btn">Reset Search</a>
     </form>
     <br />
     <br />

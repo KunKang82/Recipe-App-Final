@@ -32,10 +32,10 @@ class RecipeDetailView(LoginRequiredMixin, DetailView):  # class-based view
     template_name = "recipes/detail.html"  # specify template
 
 
-# #define function-based view - records(request)
+# #define function-based view - search(request)
 # #keep protected
 @login_required
-def records(request):
+def search(request):
     # Initialize the search form
     form = RecipesSearchForm(request.POST or None)
     recipes_df = None
@@ -87,7 +87,7 @@ def records(request):
     # Render the template with the form, search results, and chart
     return render(
         request,
-        "recipes/records.html",
+        "recipes/search.html",
         {"form": form, "recipes_df": recipes_df, "chart": chart},
     )
 
