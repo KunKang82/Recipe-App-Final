@@ -2,11 +2,11 @@
 
 ## Introduction
 
-Delicious Recipes is a sophisticated web application developed using Python and Django, aimed at providing users with a seamless experience in managing and exploring various recipes. With a user-friendly interface and robust backend architecture, this project showcases the capabilities of modern web development technologies.
+Recipes App is a sophisticated web application developed using Python and Django, aimed at providing users with a seamless experience in managing and exploring various recipes. With a user-friendly interface and robust backend architecture, this project showcases the capabilities of modern web development technologies.
 
 ## Project Overview
 
-The project encompasses a range of features tailored to meet the diverse needs of users interested in cooking and exploring new recipes. From user authentication to recipe management and data visualization, Delicious Recipes offers a comprehensive solution for recipe enthusiasts.
+The project encompasses a range of features tailored to meet the diverse needs of users interested in cooking and exploring new recipes. From user authentication to recipe management and data visualization, Recipes App offers a comprehensive solution for recipe enthusiasts.
 
 ## Application Features
 
@@ -59,6 +59,7 @@ The project encompasses a range of features tailored to meet the diverse needs o
 For inquries or feedback, feel free to reach out:
 
 ## Links
-- [My Recipe App](https://desolate-everglades-36144-e369b6e7c0c9.herokuapp.com/)
+- [Recipe App](https://desolate-everglades-36144-e369b6e7c0c9.herokuapp.com/)
+- [Video Demo](https://youtu.be/03LmTBfi_jU)
 - [Email Me](kunkang82@gmail.com)
 - [LinkedIn](linkedin.com/in/kun-woo-kang-6bb0a3284)
