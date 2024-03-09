@@ -57,9 +57,9 @@ The project encompasses a range of features tailored to meet the diverse needs o
 
 ## Contact Information
 For inquries or feedback, feel free to reach out:
+- [Email Me](mailto:kunkang82@gmail.com)
+- [LinkedIn](https://www.linkedin.com/in/kun-woo-kang-6bb0a3284)
 
 ## Links
 - [Recipe App](https://desolate-everglades-36144-e369b6e7c0c9.herokuapp.com/)
 - [Video Demo](https://youtu.be/03LmTBfi_jU)
-- [Email Me](kunkang82@gmail.com)
-- [LinkedIn](linkedin.com/in/kun-woo-kang-6bb0a3284)
